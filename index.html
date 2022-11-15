@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav_logo">
+        <h5>Amazon</h5>
+      </div>
+      <ul class="nav_links">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Help</li>
+      </ul>
+      <p class="toggle_btn">
+        <img src="./burger.jpg" alt="burger" />
+      </p>
+    </nav>
+    <ul class="toggle_nav_links">
+      <li style="background: pink; text-align: center">Home</li>
+      <li style="background: pink; text-align: center">About</li>
+      <li style="background: pink; text-align: center">Contact</li>
+      <li style="background: pink; text-align: center">Help</li>
+    </ul>
+    <script>
+      const toggleBtn = document.querySelector(".toggle_btn");
+      let toggle = false;
+      function onInitialRender() {
+        if (window.innerWidth < 756) {
+          toggleBtn.style.display = "block";
+        } else {
+          toggleBtn.style.display = "none";
+          document.querySelector(".toggle_nav_links").style.visibility =
+            "hidden";
+        }
+      }
+      window.onload = () => {
+        onInitialRender();
+      };
+      document.body.onresize = onInitialRender;
+
+      toggleBtn.addEventListener("click", () => {
+        toggle = !toggle;
+        if (toggle) {
+          document.querySelector(".toggle_nav_links").style.visibility =
+            "visible";
+          document.querySelector(".toggle_nav_links").style.opacity = 1;
+        } else {
+          document.querySelector(".toggle_nav_links").style.opacity = 0;
+          setTimeout(() => {
+            document.querySelector(".toggle_nav_links").style.visibility =
+              "hidden";
+          }, 5000);
+        }
+      });
+    </script>
+  </body>
+</html>

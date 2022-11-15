@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: pink;
+}
+
+.nav_logo {
+  margin: 12px 15px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.nav_links {
+  display: flex;
+  list-style: none;
+}
+
+.nav_links > li {
+  margin: auto 15px;
+}
+
+@media screen and (max-width: 756px) {
+  .nav_links {
+    display: none;
+  }
+}
+
+.toggle_btn {
+  display: none;
+  margin-right: 12px;
+}
+.toggle_btn > img {
+  width: 45px;
+  height: 45px;
+}
+
+.toggle_nav_links {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
